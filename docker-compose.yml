@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  wedding-website:
+    container_name: yami-buzzy-wedding
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: yami-buzzy-wedding:latest
+    ports:
+      - "9896:80"
+    restart: unless-stopped
+    environment:
+      - TZ=Asia/Ho_Chi_Minh
+    networks:
+      - wedding-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  wedding-network:
+    driver: bridge

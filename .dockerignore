@@ -1,0 +1,11 @@
+.git
+.gitignore
+*.md
+README.md
+DEPLOYMENT.md
+deploy.sh
+Jenkinsfile
+qr_code.py
+*.tar.gz
+.DS_Store
+node_modules
